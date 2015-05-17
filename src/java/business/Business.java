@@ -155,6 +155,57 @@ public class Business {
             }
       }
       
+      //Gets the PSC Object on the id supplied to it. Else returns null. 
+      public PSC getpsc(String pscid){
+            String querystr;
+            querystr = "id='"+pscid+"'";
+            List<Object> objs = db.getData("PSC", querystr);
+            PSC pt=new PSC();
+            if(objs.size()==1){
+                for(Object obj:objs){
+                    pt = (PSC)obj;
+                }
+                return pt;
+            }else{
+                return null;
+            }
+      }
+      
+      //Gets the Phlebotomist Object on the id supplied to it. Else returns null. 
+      public Phlebotomist getphlebotomist(String phleid){
+            String querystr;
+            querystr = "id='"+phleid+"'";
+            List<Object> objs = db.getData("Phlebotomist", querystr);
+            Phlebotomist pt=new Phlebotomist();
+            if(objs.size()==1){
+                for(Object obj:objs){
+                    pt = (Phlebotomist)obj;
+                }
+                return pt;
+            }else{
+                return null;
+            }
+      }
+      
+      //Gets the Physician Object on the id supplied to it. Else returns null. 
+      public Physician getphysician(String phyid){
+            String querystr;
+            querystr = "id='"+phyid+"'";
+            List<Object> objs = db.getData("Patient", querystr);
+            Physician pt=new Physician();
+            if(objs.size()==1){
+                for(Object obj:objs){
+                    pt = (Physician)obj;
+                }
+                return pt;
+            }else{
+                return null;
+            }
+      }
+      
+      
+      
+      
        //Check whether the appointment is been added to the DB or not.
       public Boolean checkAppointment(Appointment a) throws InvalidTime, InvalidTimeDuration, InvalidTimeInterval{
           Boolean flag = false;

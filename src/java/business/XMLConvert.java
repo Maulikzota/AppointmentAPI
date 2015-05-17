@@ -96,7 +96,7 @@ public class XMLConvert {
         appointment.setAttribute("time", a.getAppttime().toString());
 
         Element uri = doc.createElement("uri");
-        uri.setTextContent(contextPath + a.getId());
+        uri.setTextContent(contextPath + "/"+a.getId());
         appointment.appendChild(uri);
 
         appointment.appendChild(createPatientElement(doc, a.getPatientid()));
